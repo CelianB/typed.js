@@ -156,38 +156,6 @@ export default class Initializer {
     css.setAttribute(cssDataName, true);
 
     let innerCss = '';
-    if (self.showCursor) {
-      innerCss += `
-        .typed-cursor{
-          opacity: 1;
-        }
-        .typed-cursor.typed-cursor--blink{
-          animation: typedjsBlink 0s infinite;
-          -webkit-animation: typedjsBlink 0s infinite;
-                  animation: typedjsBlink 0s infinite;
-        }
-        @keyframes typedjsBlink{
-          50% { opacity: 0.0; }
-        }
-        @-webkit-keyframes typedjsBlink{
-          0% { opacity: 1; }
-          50% { opacity: 0.0; }
-          100% { opacity: 1; }
-        }
-      `;
-    }
-    if (self.fadeOut) {
-      innerCss += `
-        .typed-fade-out{
-          opacity: 0;
-          transition: opacity .25s;
-        }
-        .typed-cursor.typed-cursor--blink.typed-fade-out{
-          -webkit-animation: 0;
-          animation: 0;
-        }
-      `;
-    }
     if (css.length === 0) { return; }
     css.innerHTML = innerCss;
     document.body.appendChild(css);
